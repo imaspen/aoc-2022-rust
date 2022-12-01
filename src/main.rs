@@ -1,3 +1,42 @@
-fn main() {
-    println!("Hello, world!");
+use crate::days::Day;
+use std::process::ExitCode;
+
+mod days;
+mod utils;
+
+fn print_malformed_args() {
+    println!("Args are malformed, expected: aoc (day) (part)");
+}
+
+fn main() -> Result<(), ExitCode> {
+    let args: Vec<String> = std::env::args().collect();
+    if args.len() < 3 {
+        print_malformed_args();
+        return Err(ExitCode::FAILURE);
+    }
+    let day_num = args[1].parse::<u8>().unwrap_or(0);
+    let part_num = args[2].parse::<u8>().unwrap_or(0);
+
+    let day: Box<dyn Day>;
+    match day_num {
+        1 => {
+            day = Box::new(days::day_01::Day01::new());
+        }
+        2..=25 => todo!(),
+        _ => {
+            print_malformed_args();
+            return Err(ExitCode::FAILURE);
+        }
+    }
+
+    match part_num {
+        1 => println!("{}", day.part_1()),
+        2 => println!("{}", day.part_2()),
+        _ => {
+            print_malformed_args();
+            return Err(ExitCode::FAILURE);
+        }
+    }
+
+    return Ok(());
 }
