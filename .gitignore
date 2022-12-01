@@ -1,1 +1,11 @@
+# Rust build files
 /target
+
+# Editor config files
+/.vscode
+
+# Personalised input files
+/assets/*
+
+# Reinclude test input files
+!/assets/test
