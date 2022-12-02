@@ -27,7 +27,6 @@ impl super::Day for Day01 {
             .map(|group| group.into_iter().fold(0, |acc, val| acc + val))
             .collect::<Vec<_>>();
 
-        panic!();
         sums.sort();
         sums.reverse();
         return (sums[0] + sums[1] + sums[2]).to_string();
