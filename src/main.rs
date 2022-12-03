@@ -19,13 +19,10 @@ fn main() -> Result<(), ExitCode> {
 
     let day: Box<dyn Day>;
     match day_num {
-        1 => {
-            day = Box::new(days::day_01::Day01::new());
-        }
-        2 => {
-            day = Box::new(days::day_02::Day02::new());
-        }
-        3..=25 => todo!(),
+        1 => day = Box::new(days::day_01::Day01::new()),
+        2 => day = Box::new(days::day_02::Day02::new()),
+        3 => day = Box::new(days::day_03::Day03::new()),
+        4..=25 => todo!(),
         _ => {
             print_malformed_args();
             return Err(ExitCode::FAILURE);
