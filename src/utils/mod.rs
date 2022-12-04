@@ -13,6 +13,14 @@ pub(crate) fn read_day_lines(day: u8) -> Vec<String> {
     return str.lines().map(String::from).collect::<Vec<_>>();
 }
 
+pub(crate) fn read_day_csv_lines(day: u8) -> Vec<Vec<String>> {
+    let str = read_day(day);
+    return str
+        .lines()
+        .map(|line| line.split(",").map(String::from).collect())
+        .collect();
+}
+
 pub(crate) fn read_day_grouped_lines(day: u8) -> Vec<Vec<String>> {
     let lines = read_day_lines(day);
     return lines
