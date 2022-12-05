@@ -26,7 +26,7 @@ impl Day03 {
 }
 
 impl super::Day for Day03 {
-    fn part_1(&self) -> String {
+    fn part_1(&mut self) -> String {
         return self
             .vals
             .iter()
@@ -48,7 +48,7 @@ impl super::Day for Day03 {
             .to_string();
     }
 
-    fn part_2(&self) -> String {
+    fn part_2(&mut self) -> String {
         let sum = self.vals.chunks_exact(3).fold(0, |acc, chunk| {
             let matched_bit = chunk.iter().fold(u64::MAX, |matched_bits, bag| {
                 // convert each priority into its relative power of 2, and create a bitmask of all items in the bag
@@ -75,13 +75,13 @@ mod test {
 
     #[test]
     fn part_1() {
-        let day = Day03::new();
+        let mut day = Day03::new();
         assert_eq!(day.part_1(), "157");
     }
 
     #[test]
     fn part_2() {
-        let day = Day03::new();
+        let mut day = Day03::new();
         assert_eq!(day.part_2(), "70");
     }
 }

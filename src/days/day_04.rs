@@ -40,7 +40,7 @@ impl Day04 {
 }
 
 impl super::Day for Day04 {
-    fn part_1(&self) -> String {
+    fn part_1(&mut self) -> String {
         let mut count = 0;
         for assignments in &self.vals {
             if assignments.0.contains(&assignments.1) || assignments.1.contains(&assignments.0) {
@@ -50,7 +50,7 @@ impl super::Day for Day04 {
         return count.to_string();
     }
 
-    fn part_2(&self) -> String {
+    fn part_2(&mut self) -> String {
         let mut count = 0;
         for assignments in &self.vals {
             if assignments.0.overlaps(&assignments.1) || assignments.1.overlaps(&assignments.0) {
@@ -68,13 +68,13 @@ mod test {
 
     #[test]
     fn part_1() {
-        let day = Day04::new();
+        let mut day = Day04::new();
         assert_eq!(day.part_1(), "2");
     }
 
     #[test]
     fn part_2() {
-        let day = Day04::new();
+        let mut day = Day04::new();
         assert_eq!(day.part_2(), "4");
     }
 }

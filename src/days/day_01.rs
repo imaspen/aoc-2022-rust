@@ -10,7 +10,7 @@ impl Day01 {
 }
 
 impl super::Day for Day01 {
-    fn part_1(&self) -> String {
+    fn part_1(&mut self) -> String {
         let max_sum = self
             .vals
             .iter()
@@ -20,7 +20,7 @@ impl super::Day for Day01 {
         return max_sum.unwrap_or_default().to_string();
     }
 
-    fn part_2(&self) -> String {
+    fn part_2(&mut self) -> String {
         let mut sums = self
             .vals
             .iter()
@@ -40,13 +40,13 @@ mod test {
 
     #[test]
     fn part_1() {
-        let day = Day01::new();
+        let mut day = Day01::new();
         assert_eq!(day.part_1(), "24000");
     }
 
     #[test]
     fn part_2() {
-        let day = Day01::new();
+        let mut day = Day01::new();
         assert_eq!(day.part_2(), "45000");
     }
 }

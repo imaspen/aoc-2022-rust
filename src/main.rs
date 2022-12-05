@@ -17,13 +17,14 @@ fn main() -> Result<(), ExitCode> {
     let day_num = args[1].parse::<u8>().unwrap_or(0);
     let part_num = args[2].parse::<u8>().unwrap_or(0);
 
-    let day: Box<dyn Day>;
+    let mut day: Box<dyn Day>;
     match day_num {
         1 => day = Box::new(days::day_01::Day01::new()),
         2 => day = Box::new(days::day_02::Day02::new()),
         3 => day = Box::new(days::day_03::Day03::new()),
         4 => day = Box::new(days::day_04::Day04::new()),
-        5..=25 => todo!(),
+        5 => day = Box::new(days::day_05::Day05::new()),
+        6..=25 => todo!(),
         _ => {
             print_malformed_args();
             return Err(ExitCode::FAILURE);

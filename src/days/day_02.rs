@@ -36,7 +36,7 @@ impl Day02 {
 }
 
 impl super::Day for Day02 {
-    fn part_1(&self) -> String {
+    fn part_1(&mut self) -> String {
         let score = self
             .vals
             .iter()
@@ -55,7 +55,7 @@ impl super::Day for Day02 {
         return score.to_string();
     }
 
-    fn part_2(&self) -> String {
+    fn part_2(&mut self) -> String {
         let score = self
             .vals
             .iter()
@@ -83,13 +83,13 @@ mod test {
 
     #[test]
     fn part_1() {
-        let day = Day02::new();
+        let mut day = Day02::new();
         assert_eq!(day.part_1(), "15");
     }
 
     #[test]
     fn part_2() {
-        let day = Day02::new();
+        let mut day = Day02::new();
         assert_eq!(day.part_2(), "12");
     }
 }
