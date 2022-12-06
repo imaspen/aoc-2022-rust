@@ -3,6 +3,7 @@ pub(crate) mod day_02;
 pub(crate) mod day_03;
 pub(crate) mod day_04;
 pub(crate) mod day_05;
+pub(crate) mod day_06;
 
 pub(crate) trait Day {
     fn part_1(&mut self) -> String;

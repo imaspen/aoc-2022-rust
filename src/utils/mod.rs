@@ -1,8 +1,14 @@
+use lazy_static::lazy_static;
+
+lazy_static! {
+    pub(crate) static ref IS_TEST: bool =
+        std::env::var("IS_TEST").unwrap_or("false".to_string()) == "true";
+}
+
 pub(crate) fn read_day(day: u8) -> String {
-    let is_test = std::env::var("IS_TEST").unwrap_or("false".to_string()) == "true";
     let str = std::fs::read_to_string(format!(
         "assets/{}{:02}.txt",
-        if is_test { "test/" } else { "" },
+        if *IS_TEST { "test/" } else { "" },
         day
     ));
     return str.unwrap();
