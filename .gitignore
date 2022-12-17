@@ -9,3 +9,5 @@
 
 # Reinclude test input files
 !/assets/test
+
+/src/days/day_x
