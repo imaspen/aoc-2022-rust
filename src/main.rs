@@ -43,7 +43,7 @@ fn main() -> Result<(), ExitCode> {
         22 => day = Box::new(days::day_22::Day22::new()),
         23 => day = Box::new(days::day_23::Day23::new()),
         24 => day = Box::new(days::day_24::Day24::new()),
-        25 => todo!(),
+        25 => day = Box::new(days::day_25::Day25::new()),
         _ => {
             print_malformed_args();
             return Err(ExitCode::FAILURE);
